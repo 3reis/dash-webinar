@@ -42,7 +42,7 @@ function parseNumber(val: any): number {
   return parseFloat(numStr);
 }
 
-function extractValue(grid: any[][], searchTerms: string[], isPercentage = false): number | null {
+function extractValue(grid: any[][], searchTerms: string[], isPercentage = false, exactMatch = false): number | null {
   for (let r = 0; r < grid.length; r++) {
     if (!grid[r]) continue;
     for (let c = 0; c < grid[r].length; c++) {
@@ -51,7 +51,7 @@ function extractValue(grid: any[][], searchTerms: string[], isPercentage = false
       
       const isMatch = searchTerms.some(term => {
         const normTerm = normalize(term);
-        return normalizedCell === normTerm || (normalizedCell.includes(normTerm) && normalizedCell.length <= normTerm.length + 20);
+        return normalizedCell === normTerm || (!exactMatch && normalizedCell.includes(normTerm) && normalizedCell.length <= normTerm.length + 20);
       });
 
       if (isMatch) {
@@ -83,7 +83,7 @@ function extractDashboardValues(grid: any[][]): DashboardData {
   const investimentoTrafego = extractValue(grid, ['valor de instimento', 'valor de investimento', 'investimento total em trafego', 'investimento', 'trafego']) ?? MOCK_DATA.investimentoTrafego;
   const leadsMeta = extractValue(grid, ['leads (meta)', 'total de leads (meta)', 'leads meta', 'leads']) ?? MOCK_DATA.leadsMeta;
   const cplMeta = extractValue(grid, ['cpl (meta)', 'custo por lead (meta)', 'cpl meta']) ?? MOCK_DATA.cplMeta;
-  const cplReal = extractValue(grid, ['cpl', 'custo por lead']) ?? MOCK_DATA.cplReal;
+  const cplReal = extractValue(grid, ['cpl', 'custo por lead'], false, true) ?? MOCK_DATA.cplReal;
 
   return {
     inscritos, entradasGrupo, pesquisas, icps, diagnosticos,

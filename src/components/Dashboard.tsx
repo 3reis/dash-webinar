@@ -52,8 +52,8 @@ export function Dashboard() {
               </svg>
             </div>
             <div>
-              <h1 className="text-xl font-semibold text-white tracking-tight">inChurch Dashboard</h1>
-              <p className="text-xs text-in-green font-mono">LIVE / METRICS</p>
+              <h1 className="text-xl font-semibold text-white tracking-tight">Dados Webinar IA</h1>
+              <p className="text-xs text-in-green font-mono">MÉTRICAS</p>
             </div>
           </div>
           
@@ -178,7 +178,7 @@ export function Dashboard() {
               delay={0.4}
             />
             <KPICard 
-              title="Meta de Leads" 
+              title="Leads (Meta)" 
               value={formatNumber(data.leadsMeta)} 
               icon={<Target className="w-5 h-5" />}
               delay={0.5}
