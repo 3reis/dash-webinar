@@ -81,7 +81,7 @@ function extractDashboardValues(grid: any[][]): DashboardData {
   const taxaPesquisaIcp = extractValue(grid, ['pesquisa % icps', 'conversao icp'], true) ?? (icps / (pesquisas || 1));
 
   const investimentoTrafego = extractValue(grid, ['valor de instimento', 'valor de investimento', 'investimento total em trafego', 'investimento', 'trafego']) ?? MOCK_DATA.investimentoTrafego;
-  const leadsMeta = extractValue(grid, ['leads (meta)', 'total de leads (meta)', 'leads meta', 'leads']) ?? MOCK_DATA.leadsMeta;
+  const leadsMeta = extractValue(grid, ['leads (meta)', 'total de leads (meta)', 'leads meta']) ?? MOCK_DATA.leadsMeta;
   const cplMeta = extractValue(grid, ['cpl (meta)', 'custo por lead (meta)', 'cpl meta']) ?? MOCK_DATA.cplMeta;
   const cplReal = extractValue(grid, ['cpl', 'custo por lead'], false, true) ?? MOCK_DATA.cplReal;
 
