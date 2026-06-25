@@ -21,7 +21,7 @@ export function Dashboard() {
   if (loading && !data.inscritos) {
     return (
       <div className="flex h-screen w-full items-center justify-center bg-bg-base">
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center space-y-4">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-bg-card-border border-t-in-green" />
           <p className="text-gray-400 font-mono text-sm animate-pulse">Sincronizando com Google Sheets...</p>
         </div>
@@ -41,8 +41,8 @@ export function Dashboard() {
     <div className="min-h-screen bg-bg-base w-full pb-20">
       {/* Header */}
       <header className="sticky top-0 z-10 border-b border-bg-card-border bg-black/50 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+          <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-xl bg-in-green flex items-center justify-center">
               <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-black" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="3" width="7" height="7" rx="1.5" />
@@ -57,16 +57,16 @@ export function Dashboard() {
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
             {error && (
-              <div className="flex items-center gap-2 bg-yellow-500/10 text-yellow-500 px-4 py-2 rounded-full text-sm font-medium border border-yellow-500/20">
+              <div className="flex items-center space-x-2 bg-yellow-500/10 text-yellow-500 px-4 py-2 rounded-full text-sm font-medium border border-yellow-500/20">
                 <AlertCircle className="w-4 h-4" />
                 <span className="hidden xl:inline">{error}</span>
                 <span className="xl:hidden">Modo Demo</span>
               </div>
             )}
             {!error && !loading && (
-               <div className="flex items-center gap-2 bg-in-green/10 text-in-green px-4 py-2 rounded-full text-sm font-medium border border-in-green/20">
+               <div className="flex items-center space-x-2 bg-in-green/10 text-in-green px-4 py-2 rounded-full text-sm font-medium border border-in-green/20">
                   <div className="w-2 h-2 rounded-full bg-in-green animate-pulse"></div>
                   <span>Sincronizado</span>
                </div>
@@ -75,7 +75,7 @@ export function Dashboard() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-8">
+      <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
 
         
         {/* Core Metrics Grid */}
@@ -123,7 +123,7 @@ export function Dashboard() {
              <FunnelChart data={funnelData} />
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col space-y-4">
             <h2 className="text-sm font-mono text-gray-500 mb-1 px-2 uppercase tracking-widest">Taxas de Conversão</h2>
             
             <motion.div 
